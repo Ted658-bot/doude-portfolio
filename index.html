@@ -62,6 +62,22 @@ nav a:hover { color: #38bdf8; }
     #090d18;
 }
 
+.profile-photo {
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #38bdf8;
+  margin-bottom: 25px;
+  box-shadow: 0 0 25px #38bdf855;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .tag {
   color: #38bdf8;
   letter-spacing: 3px;
@@ -138,6 +154,29 @@ section {
 .card h3 { margin-bottom: 8px; }
 .card p { color: #aab4c5; font-size: 14px; }
 
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.social {
+  display: inline-block;
+  padding: 11px 20px;
+  border: 1px solid #38bdf8;
+  border-radius: 8px;
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: bold;
+  transition: .3s;
+}
+
+.social:hover {
+  background: #38bdf8;
+  color: #07111e;
+}
+
 .contact p { color: #aab4c5; }
 
 footer {
@@ -171,15 +210,32 @@ footer {
 <main>
 
 <section class="hero" id="home">
+
+  <div class="profile-photo">
+    <img src="profile.jpg" alt="DOUDE profile photo">
+  </div>
+
   <div class="tag">WELCOME TO MY PORTFOLIO</div>
   <h1>I'm <span>DOUDE.</span></h1>
   <h2>Footballer | Tech Enthusiast | Creator</h2>
+
   <p>
     Welcome to my personal website.
     A place where I share my passion,
     creativity, projects and ambitions.
   </p>
+
   <a href="#about" class="btn">Discover More →</a>
+
+  <div class="socials">
+    <a class="social"
+       href="https://www.tiktok.com/@doude486?_r=1&_t=ZS-9B7whBDEZBS"
+       target="_blank"
+       rel="noopener noreferrer">
+       TikTok ↗
+    </a>
+  </div>
+
 </section>
 
 <section class="about" id="about">
@@ -197,40 +253,49 @@ footer {
 <section id="skills">
   <h2 class="section-title">My <span>Interests.</span></h2>
   <div class="skills">
+
     <div class="card">
       <h3>⚽ Football</h3>
       <p>Passion, discipline and teamwork.</p>
     </div>
+
     <div class="card">
       <h3>💻 Technology</h3>
       <p>Exploring the world of technology.</p>
     </div>
+
     <div class="card">
       <h3>🤖 Artificial Intelligence</h3>
       <p>Discovering and building AI projects.</p>
     </div>
+
     <div class="card">
       <h3>🚀 Creativity</h3>
       <p>Turning ideas into projects.</p>
     </div>
+
   </div>
 </section>
 
 <section id="projects">
   <h2 class="section-title">My <span>Projects.</span></h2>
   <div class="projects">
+
     <div class="card">
       <h3>MindPhone BCI</h3>
       <p>A personal experimental interface with simulated brain signals.</p>
     </div>
+
     <div class="card">
       <h3>Ted AI WhatsApp</h3>
       <p>An AI assistant project concept.</p>
     </div>
+
     <div class="card">
       <h3>Football Journey</h3>
       <p>My passion, experiences and football ambitions.</p>
     </div>
+
   </div>
 </section>
 
