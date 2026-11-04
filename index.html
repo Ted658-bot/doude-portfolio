@@ -5,7 +5,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080d18">
-
 <title>DOUDE | Official Portfolio</title>
 
 <style>
@@ -16,51 +15,72 @@
   scroll-behavior: smooth;
 }
 
+:root {
+  --blue: #38bdf8;
+  --bg: #080d18;
+  --card: #111a2b;
+  --muted: #aab4c5;
+}
+
 body {
   font-family: Arial, sans-serif;
-  background: #080d18;
+  background: var(--bg);
   color: white;
   line-height: 1.7;
+  overflow-x: hidden;
 }
 
 header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(8,13,24,.95);
+  background: rgba(8,13,24,.96);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid #233149;
-  padding: 15px 7%;
+  padding: 14px 6%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 15px;
 }
 
 .logo {
   font-size: 25px;
   font-weight: 900;
   letter-spacing: 2px;
+  white-space: nowrap;
 }
 
-.logo span,
-.blue {
-  color: #38bdf8;
+.logo span, .blue {
+  color: var(--blue);
 }
 
 nav {
   display: flex;
   flex-wrap: wrap;
   gap: 13px;
+  align-items: center;
 }
 
 nav a {
   color: #ddd;
   text-decoration: none;
   font-size: 12px;
+  transition: .3s;
 }
 
 nav a:hover {
-  color: #38bdf8;
+  color: var(--blue);
+}
+
+.lang-btn {
+  border: 1px solid var(--blue);
+  background: transparent;
+  color: var(--blue);
+  padding: 7px 12px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .hero {
@@ -72,7 +92,7 @@ nav a:hover {
   align-items: flex-start;
   background:
     radial-gradient(circle at 85% 20%, #12365b 0%, transparent 35%),
-    #080d18;
+    var(--bg);
 }
 
 .profile-photo {
@@ -80,7 +100,7 @@ nav a:hover {
   height: 145px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid #38bdf8;
+  border: 3px solid var(--blue);
   margin-bottom: 25px;
   box-shadow: 0 0 25px #38bdf855;
 }
@@ -92,7 +112,7 @@ nav a:hover {
 }
 
 .tag {
-  color: #38bdf8;
+  color: var(--blue);
   letter-spacing: 3px;
   font-size: 12px;
   font-weight: bold;
@@ -110,16 +130,15 @@ nav a:hover {
   margin-bottom: 18px;
 }
 
-.hero p,
-.section-text {
+.hero p, .section-text {
   max-width: 650px;
-  color: #aab4c5;
+  color: var(--muted);
 }
 
 .btn {
   display: inline-block;
   margin-top: 25px;
-  background: #38bdf8;
+  background: var(--blue);
   color: #07111e;
   padding: 12px 25px;
   border-radius: 7px;
@@ -135,15 +154,16 @@ nav a:hover {
 
 section {
   padding: 75px 8%;
+  scroll-margin-top: 85px;
 }
 
 .section-title {
   font-size: 32px;
-  margin-bottom: 25px;
+  margin-bottom: 22px;
 }
 
 .section-title span {
-  color: #38bdf8;
+  color: var(--blue);
 }
 
 .cards {
@@ -154,26 +174,98 @@ section {
 }
 
 .card {
-  background: #111a2b;
+  background: var(--card);
   border: 1px solid #24334b;
-  padding: 25px;
+  padding: 24px;
   border-radius: 14px;
   transition: .3s;
 }
 
 .card:hover {
   transform: translateY(-6px);
-  border-color: #38bdf8;
+  border-color: var(--blue);
 }
 
 .card h3 {
   margin-bottom: 10px;
-  color: #fff;
 }
 
 .card p {
-  color: #aab4c5;
+  color: var(--muted);
   font-size: 14px;
+}
+
+details {
+  margin-top: 15px;
+  border-top: 1px solid #293951;
+  padding-top: 12px;
+}
+
+summary {
+  color: var(--blue);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.details-text {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.gallery-item {
+  min-height: 230px;
+  background: linear-gradient(135deg, #142c49, #111a2b);
+  border: 1px solid #29415e;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+}
+
+.placeholder {
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+}
+
+.placeholder strong {
+  color: var(--blue);
+  font-size: 35px;
+}
+
+.placeholder p {
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.gallery-link {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.goal {
+  border-left: 3px solid var(--blue);
 }
 
 .socials {
@@ -185,20 +277,17 @@ section {
 
 .social {
   display: inline-block;
-  color: #38bdf8;
-  border: 1px solid #38bdf8;
+  color: var(--blue);
+  border: 1px solid var(--blue);
   padding: 10px 20px;
   border-radius: 7px;
   text-decoration: none;
+  transition: .3s;
 }
 
 .social:hover {
-  background: #38bdf8;
+  background: var(--blue);
   color: #07111e;
-}
-
-.contact p {
-  color: #aab4c5;
 }
 
 footer {
@@ -209,10 +298,38 @@ footer {
   font-size: 13px;
 }
 
-@media(max-width: 600px) {
+/* Animations */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero {
+  animation: appear 1s ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media(max-width: 650px) {
   header {
     flex-direction: column;
-    gap: 12px;
+    padding: 12px 4%;
   }
 
   nav {
@@ -220,12 +337,30 @@ footer {
     gap: 10px;
   }
 
+  nav a {
+    font-size: 11px;
+  }
+
   .hero {
     min-height: 80vh;
+    padding: 55px 7%;
   }
 
   section {
     padding: 60px 7%;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }
 </style>
@@ -237,12 +372,14 @@ footer {
   <div class="logo">DOUDE<span>.</span></div>
 
   <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#football">Football</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+    <a href="#home" data-en="Home" data-fr="Accueil">Home</a>
+    <a href="#about" data-en="About" data-fr="À propos">About</a>
+    <a href="#football" data-en="Football" data-fr="Football">Football</a>
+    <a href="#skills" data-en="Skills" data-fr="Intérêts">Skills</a>
+    <a href="#projects" data-en="Projects" data-fr="Projets">Projects</a>
+    <a href="#gallery" data-en="Gallery" data-fr="Galerie">Gallery</a>
+    <a href="#contact" data-en="Contact" data-fr="Contact">Contact</a>
+    <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">FR</button>
   </nav>
 </header>
 
@@ -255,53 +392,62 @@ footer {
          alt="DOUDE profile photo">
   </div>
 
-  <div class="tag">WELCOME TO MY OFFICIAL PORTFOLIO</div>
+  <div class="tag"
+       data-en="WELCOME TO MY OFFICIAL PORTFOLIO"
+       data-fr="BIENVENUE SUR MON PORTFOLIO OFFICIEL">
+    WELCOME TO MY OFFICIAL PORTFOLIO
+  </div>
 
   <h1>I'm <span class="blue">DOUDE.</span></h1>
 
   <h2>Footballer | Tech Enthusiast | Creator</h2>
 
-  <p>
-    Welcome to my personal space.
-    I'm passionate about football,
-    technology, creativity and innovation.
-    This is where my journey and ambitions come together.
+  <p
+    data-en="Welcome to my personal space. I'm passionate about football, technology, creativity and innovation. This is where my journey and ambitions come together."
+    data-fr="Bienvenue dans mon univers. Je suis passionné de football, de technologie, de créativité et d'innovation. Ici, je partage mon parcours et mes ambitions.">
+    Welcome to my personal space. I'm passionate about football,
+    technology, creativity and innovation. This is where my journey
+    and ambitions come together.
   </p>
 
-  <a href="#about" class="btn">Discover My World →</a>
+  <a href="#about" class="btn"
+     data-en="Discover My World →"
+     data-fr="Découvrir mon univers →">
+    Discover My World →
+  </a>
 
   <div class="socials">
     <a class="social"
        href="https://www.tiktok.com/@doude486?_r=1&_t=ZS-9B7whBDEZBS"
        target="_blank"
-       rel="noopener noreferrer">
-       TikTok ↗
-    </a>
+       rel="noopener noreferrer">TikTok ↗</a>
   </div>
 
 </section>
 
-<section id="about">
+<section id="about" class="reveal">
 
   <h2 class="section-title">About <span>Me.</span></h2>
 
-  <p class="section-text">
+  <p class="section-text"
+     data-en="I'm DOUDE, a young footballer and technology enthusiast. I enjoy learning, creating projects and challenging myself to become better every day. My journey is built on discipline, creativity and ambition."
+     data-fr="Je suis DOUDE, un jeune footballeur passionné de technologie. J'aime apprendre, créer des projets et relever de nouveaux défis. Mon parcours repose sur la discipline, la créativité et l'ambition.">
     I'm DOUDE, a young footballer and technology enthusiast.
     I enjoy learning, creating projects and challenging myself
     to become better every day.
-    My journey is built on discipline, creativity and ambition.
   </p>
 
 </section>
 
-<section id="football">
+<section id="football" class="reveal">
 
   <h2 class="section-title">My <span>Football Journey.</span></h2>
 
-  <p class="section-text">
-    Football is one of my biggest passions.
-    I believe in hard work, discipline, teamwork
-    and continuous improvement.
+  <p class="section-text"
+     data-en="Football is one of my biggest passions. I believe in hard work, discipline, teamwork and continuous improvement."
+     data-fr="Le football est l'une de mes plus grandes passions. Je crois au travail, à la discipline, à l'esprit d'équipe et au progrès continu.">
+    Football is one of my biggest passions. I believe in hard work,
+    discipline, teamwork and continuous improvement.
   </p>
 
   <div class="cards">
@@ -330,7 +476,7 @@ footer {
 
 </section>
 
-<section id="skills">
+<section id="skills" class="reveal">
 
   <h2 class="section-title">My <span>Interests.</span></h2>
 
@@ -360,7 +506,7 @@ footer {
 
 </section>
 
-<section id="projects">
+<section id="projects" class="reveal">
 
   <h2 class="section-title">My <span>Projects.</span></h2>
 
@@ -368,45 +514,134 @@ footer {
 
     <div class="card">
       <h3>MindPhone BCI</h3>
-      <p>
-        An experimental interface with simulated brain signals.
-      </p>
+      <p>An experimental interface with simulated brain signals.</p>
+      <details>
+        <summary>View project details</summary>
+        <p class="details-text">
+          A personal experimental interface project.
+          All brain and EEG data displayed in the project
+          are simulations, not real brain measurements.
+        </p>
+      </details>
     </div>
 
     <div class="card">
       <h3>Ted AI WhatsApp</h3>
-      <p>
-        An AI assistant project concept.
-      </p>
+      <p>An AI assistant project concept.</p>
+      <details>
+        <summary>View project details</summary>
+        <p class="details-text">
+          A project concept focused on creating a helpful
+          AI assistant with WhatsApp integration.
+        </p>
+      </details>
     </div>
 
     <div class="card">
-      <h3>Football Journey</h3>
-      <p>
-        My football passion, experiences and ambitions.
-      </p>
+      <h3>DOUDE Portfolio</h3>
+      <p>My personal website and digital identity.</p>
+      <details>
+        <summary>View project details</summary>
+        <p class="details-text">
+          A personal website built with HTML, CSS and JavaScript
+          to present my interests, projects and journey.
+        </p>
+      </details>
     </div>
 
   </div>
 
 </section>
 
-<section id="contact">
+<section id="gallery" class="reveal">
+
+  <h2 class="section-title">Football <span>Gallery.</span></h2>
+
+  <p class="section-text"
+     data-en="A space for my football photos and videos. My personal media will be added here."
+     data-fr="Un espace pour mes photos et vidéos de football. Mes médias personnels seront ajoutés ici.">
+    A space for my football photos and videos.
+    My personal media will be added here.
+  </p>
+
+  <div class="gallery">
+
+    <div class="gallery-item">
+      <img src="football1.jpeg"
+           alt="Football photo 1"
+           onerror="this.style.display='none'">
+      <div class="placeholder">
+        <strong>⚽</strong>
+        <p>Football Photo 1</p>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="football2.jpeg"
+           alt="Football photo 2"
+           onerror="this.style.display='none'">
+      <div class="placeholder">
+        <strong>🏃</strong>
+        <p>Football Photo 2</p>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="placeholder">
+        <strong>🎬</strong>
+        <p>Football videos</p>
+        <a class="gallery-link"
+           href="https://www.tiktok.com/@doude486?_r=1&_t=ZS-9B7whBDEZBS"
+           target="_blank"
+           rel="noopener noreferrer">Watch on TikTok ↗</a>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="goals" class="reveal">
+
+  <h2 class="section-title">My <span>Goals.</span></h2>
+
+  <div class="cards">
+
+    <div class="card goal">
+      <h3>🏆 Football</h3>
+      <p>Improve my football skills and become a better player.</p>
+    </div>
+
+    <div class="card goal">
+      <h3>💻 Technology</h3>
+      <p>Continue learning computer science and programming.</p>
+    </div>
+
+    <div class="card goal">
+      <h3>🚀 Creativity</h3>
+      <p>Build useful projects and turn ideas into reality.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="contact" class="reveal">
 
   <h2 class="section-title">Contact <span>Me.</span></h2>
 
-  <p>
-    Want to connect or collaborate?
-    Follow me on TikTok.
+  <p class="section-text"
+     data-en="Want to connect or follow my journey? Visit my TikTok profile."
+     data-fr="Envie de me suivre ou de découvrir mon parcours ? Visitez mon profil TikTok.">
+    Want to connect or follow my journey?
+    Visit my TikTok profile.
   </p>
 
   <div class="socials">
     <a class="social"
        href="https://www.tiktok.com/@doude486?_r=1&_t=ZS-9B7whBDEZBS"
        target="_blank"
-       rel="noopener noreferrer">
-       Visit My TikTok ↗
-    </a>
+       rel="noopener noreferrer">Visit My TikTok ↗</a>
   </div>
 
 </section>
@@ -420,6 +655,42 @@ footer {
 <script>
 document.getElementById("year").textContent =
   new Date().getFullYear();
+
+/* Language switch */
+
+let currentLanguage = "en";
+
+function toggleLanguage() {
+  currentLanguage =
+    currentLanguage === "en" ? "fr" : "en";
+
+  document.documentElement.lang = currentLanguage;
+
+  document.querySelectorAll("[data-en]").forEach(element => {
+    element.textContent =
+      element.getAttribute("data-" + currentLanguage);
+  });
+
+  document.getElementById("langBtn").textContent =
+    currentLanguage === "en" ? "FR" : "EN";
+}
+
+/* Scroll animations */
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.12
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+  observer.observe(element);
+});
 </script>
 
 </body>
