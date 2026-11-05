@@ -1,692 +1,306 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080d18">
-<title>DOUDE | Official Portfolio</title>
-
+<meta name="theme-color" content="#07111f">
+<title>DOUDE | Personal Portfolio</title>
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
 :root {
-  --blue: #38bdf8;
-  --bg: #080d18;
-  --card: #111a2b;
-  --muted: #aab4c5;
+  --bg:#07111f;
+  --card:#101e32;
+  --blue:#168cff;
+  --text:#f4f7ff;
+  --muted:#a9b8cc;
 }
-
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth}
 body {
-  font-family: Arial, sans-serif;
-  background: var(--bg);
-  color: white;
-  line-height: 1.7;
-  overflow-x: hidden;
+  font-family:Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
 }
-
 header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(8,13,24,.96);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid #233149;
-  padding: 14px 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
+  position:sticky;top:0;z-index:10;
+  background:#07111fee;
+  backdrop-filter:blur(12px);
+  padding:14px 5%;
+  display:flex;justify-content:space-between;
+  align-items:center;gap:12px;flex-wrap:wrap;
+  border-bottom:1px solid #ffffff12;
 }
-
-.logo {
-  font-size: 25px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  white-space: nowrap;
+.logo {font-size:25px;font-weight:900;color:var(--blue)}
+nav {display:flex;gap:14px;flex-wrap:wrap}
+nav a {color:var(--text);text-decoration:none;font-size:13px}
+nav a:hover {color:var(--blue)}
+button,.btn {
+  background:var(--blue);color:white;
+  border:0;padding:10px 16px;
+  border-radius:9px;font-weight:bold;
+  cursor:pointer;text-decoration:none;
 }
-
-.logo span, .blue {
-  color: var(--blue);
-}
-
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 13px;
-  align-items: center;
-}
-
-nav a {
-  color: #ddd;
-  text-decoration: none;
-  font-size: 12px;
-  transition: .3s;
-}
-
-nav a:hover {
-  color: var(--blue);
-}
-
-.lang-btn {
-  border: 1px solid var(--blue);
-  background: transparent;
-  color: var(--blue);
-  padding: 7px 12px;
-  border-radius: 7px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
+section {padding:75px 7%;scroll-margin-top:75px}
+.container {max-width:1050px;margin:auto}
+h2 {font-size:29px;margin-bottom:24px}
+h2 span {color:var(--blue)}
+p {color:var(--muted)}
 .hero {
-  min-height: 90vh;
-  padding: 70px 8%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  background:
-    radial-gradient(circle at 85% 20%, #12365b 0%, transparent 35%),
-    var(--bg);
+  min-height:85vh;display:flex;
+  flex-direction:column;justify-content:center;
+  align-items:center;text-align:center;
 }
-
-.profile-photo {
-  width: 145px;
-  height: 145px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 3px solid var(--blue);
-  margin-bottom: 25px;
-  box-shadow: 0 0 25px #38bdf855;
+.profile {
+  width:155px;height:155px;border-radius:50%;
+  object-fit:cover;border:4px solid var(--blue);
+  box-shadow:0 0 28px #168cff66;
+  margin-bottom:22px;
 }
-
-.profile-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.tag {
-  color: var(--blue);
-  letter-spacing: 3px;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.hero h1 {
-  font-size: clamp(48px, 12vw, 85px);
-  line-height: 1.1;
-  margin: 15px 0;
-}
-
-.hero h2 {
-  color: #a5b4fc;
-  font-size: 19px;
-  margin-bottom: 18px;
-}
-
-.hero p, .section-text {
-  max-width: 650px;
-  color: var(--muted);
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 25px;
-  background: var(--blue);
-  color: #07111e;
-  padding: 12px 25px;
-  border-radius: 7px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: .3s;
-}
-
-.btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 20px #38bdf855;
-}
-
-section {
-  padding: 75px 8%;
-  scroll-margin-top: 85px;
-}
-
-.section-title {
-  font-size: 32px;
-  margin-bottom: 22px;
-}
-
-.section-title span {
-  color: var(--blue);
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
-  margin-top: 25px;
-}
-
+.hero h1 {font-size:clamp(38px,8vw,65px)}
+.hero h1 span {color:var(--blue)}
+.hero p {max-width:600px;margin:12px 0 25px}
+.buttons {display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .card {
-  background: var(--card);
-  border: 1px solid #24334b;
-  padding: 24px;
-  border-radius: 14px;
-  transition: .3s;
+  background:var(--card);padding:23px;
+  border:1px solid #ffffff12;border-radius:16px;
+  margin-bottom:16px;
 }
-
-.card:hover {
-  transform: translateY(-6px);
-  border-color: var(--blue);
+.grid {
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:17px;
 }
-
-.card h3 {
-  margin-bottom: 10px;
+.card h3 {color:var(--blue);margin-bottom:8px}
+.stat {
+  font-size:30px;font-weight:900;color:var(--blue);
 }
-
-.card p {
-  color: var(--muted);
-  font-size: 14px;
+.tag {
+  display:inline-block;background:#168cff20;
+  color:#73baff;padding:6px 11px;
+  border-radius:20px;font-size:12px;margin:4px;
 }
-
+.gallery img {
+  width:100%;height:190px;object-fit:cover;
+  border-radius:12px;background:#192b43;
+}
+.gallery .card {padding:12px}
 details {
-  margin-top: 15px;
-  border-top: 1px solid #293951;
-  padding-top: 12px;
+  background:#101e32;padding:16px;
+  border-radius:12px;margin:12px 0;
 }
-
-summary {
-  color: var(--blue);
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: bold;
-}
-
-.details-text {
-  color: var(--muted);
-  font-size: 13px;
-  margin-top: 12px;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
-  margin-top: 25px;
-}
-
-.gallery-item {
-  min-height: 230px;
-  background: linear-gradient(135deg, #142c49, #111a2b);
-  border: 1px solid #29415e;
-  border-radius: 14px;
-  overflow: hidden;
-  position: relative;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 230px;
-  object-fit: cover;
-  display: block;
-}
-
-.placeholder {
-  min-height: 230px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-  color: var(--muted);
-}
-
-.placeholder strong {
-  color: var(--blue);
-  font-size: 35px;
-}
-
-.placeholder p {
-  font-size: 13px;
-  margin-top: 8px;
-}
-
-.gallery-link {
-  color: var(--blue);
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.goal {
-  border-left: 3px solid var(--blue);
-}
-
-.socials {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-top: 25px;
-}
-
-.social {
-  display: inline-block;
-  color: var(--blue);
-  border: 1px solid var(--blue);
-  padding: 10px 20px;
-  border-radius: 7px;
-  text-decoration: none;
-  transition: .3s;
-}
-
-.social:hover {
-  background: var(--blue);
-  color: #07111e;
-}
-
+summary {cursor:pointer;color:var(--blue);font-weight:bold}
+details p {margin-top:12px}
+.social {display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
 footer {
-  text-align: center;
-  padding: 25px;
-  border-top: 1px solid #202b40;
-  color: #8290a5;
-  font-size: 13px;
+  text-align:center;padding:25px;
+  border-top:1px solid #ffffff15;color:var(--muted);
 }
-
-/* Animations */
-
 .reveal {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: opacity .7s ease, transform .7s ease;
+  opacity:0;transform:translateY(25px);
+  transition:opacity .7s,transform .7s;
 }
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+.reveal.visible {opacity:1;transform:translateY(0)}
+a {color:#73baff}
+@media(max-width:600px) {
+  header {justify-content:center}
+  nav {justify-content:center}
+  section {padding:60px 6%}
+  h2 {font-size:25px}
 }
-
-.hero {
-  animation: appear 1s ease;
-}
-
-@keyframes appear {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    scroll-behavior:auto!important;
+    transition:none!important;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media(max-width: 650px) {
-  header {
-    flex-direction: column;
-    padding: 12px 4%;
-  }
-
-  nav {
-    justify-content: center;
-    gap: 10px;
-  }
-
-  nav a {
-    font-size: 11px;
-  }
-
-  .hero {
-    min-height: 80vh;
-    padding: 55px 7%;
-  }
-
-  section {
-    padding: 60px 7%;
-  }
-}
-
-@media(prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    scroll-behavior: auto !important;
-    animation: none !important;
-    transition: none !important;
-  }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
-  }
+  .reveal {opacity:1;transform:none}
 }
 </style>
 </head>
-
 <body>
 
 <header>
-  <div class="logo">DOUDE<span>.</span></div>
-
+  <div class="logo">DOUDE.</div>
   <nav>
-    <a href="#home" data-en="Home" data-fr="Accueil">Home</a>
-    <a href="#about" data-en="About" data-fr="À propos">About</a>
-    <a href="#football" data-en="Football" data-fr="Football">Football</a>
-    <a href="#skills" data-en="Skills" data-fr="Intérêts">Skills</a>
-    <a href="#projects" data-en="Projects" data-fr="Projets">Projects</a>
-    <a href="#gallery" data-en="Gallery" data-fr="Galerie">Gallery</a>
-    <a href="#contact" data-en="Contact" data-fr="Contact">Contact</a>
-    <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">FR</button>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#football">Football</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#projects">Projects</a>
+    <a href="#goals">Goals</a>
+    <a href="#contact">Contact</a>
   </nav>
+  <button onclick="toggleLanguage()" id="langBtn">EN</button>
 </header>
 
-<main>
-
 <section class="hero" id="home">
-
-  <div class="profile-photo">
-    <img src="193e0b28-f352-4ee3-b00a-cad6931d60c1.jpeg"
-         alt="DOUDE profile photo">
-  </div>
-
-  <div class="tag"
-       data-en="WELCOME TO MY OFFICIAL PORTFOLIO"
-       data-fr="BIENVENUE SUR MON PORTFOLIO OFFICIEL">
-    WELCOME TO MY OFFICIAL PORTFOLIO
-  </div>
-
-  <h1>I'm <span class="blue">DOUDE.</span></h1>
-
-  <h2>Footballer | Tech Enthusiast | Creator</h2>
-
-  <p
-    data-en="Welcome to my personal space. I'm passionate about football, technology, creativity and innovation. This is where my journey and ambitions come together."
-    data-fr="Bienvenue dans mon univers. Je suis passionné de football, de technologie, de créativité et d'innovation. Ici, je partage mon parcours et mes ambitions.">
-    Welcome to my personal space. I'm passionate about football,
-    technology, creativity and innovation. This is where my journey
-    and ambitions come together.
+  <img class="profile"
+  src="193e0b28-f352-4ee3-b00a-cad6931d60c1.jpeg"
+  alt="DOUDE profile photo">
+  <h1>Hi, I'm <span>DOUDE</span></h1>
+  <p data-fr="Bienvenue dans mon univers. Football, technologie, créativité et ambition. Je travaille chaque jour pour construire mon avenir."
+     data-en="Welcome to my world. Football, technology, creativity and ambition. I work every day to build my future.">
+     Bienvenue dans mon univers. Football, technologie, créativité et ambition. Je travaille chaque jour pour construire mon avenir.
   </p>
-
-  <a href="#about" class="btn"
-     data-en="Discover My World →"
-     data-fr="Découvrir mon univers →">
-    Discover My World →
-  </a>
-
-  <div class="socials">
-    <a class="social"
-       href="https://www.tiktok.com/@doude486?_r=1&_t=ZS-9B7whBDEZBS"
-       target="_blank"
-       rel="noopener noreferrer">TikTok ↗</a>
+  <div class="buttons">
+    <a class="btn" href="#about">Discover Me</a>
+    <a class="btn" href="#contact">Contact</a>
   </div>
-
 </section>
 
 <section id="about" class="reveal">
-
-  <h2 class="section-title">About <span>Me.</span></h2>
-
-  <p class="section-text"
-     data-en="I'm DOUDE, a young footballer and technology enthusiast. I enjoy learning, creating projects and challenging myself to become better every day. My journey is built on discipline, creativity and ambition."
-     data-fr="Je suis DOUDE, un jeune footballeur passionné de technologie. J'aime apprendre, créer des projets et relever de nouveaux défis. Mon parcours repose sur la discipline, la créativité et l'ambition.">
-    I'm DOUDE, a young footballer and technology enthusiast.
-    I enjoy learning, creating projects and challenging myself
-    to become better every day.
-  </p>
-
+<div class="container">
+<h2>About <span>Me</span></h2>
+<div class="card">
+<p data-fr="Je suis DOUDE, passionné par le football, l'informatique et la création de projets. Mon objectif est d'apprendre, de progresser et de transformer mes idées en réalité."
+data-en="I'm DOUDE, passionate about football, computer science and creating projects. My goal is to learn, improve and turn my ideas into reality.">
+Je suis DOUDE, passionné par le football, l'informatique et la création de projets. Mon objectif est d'apprendre, de progresser et de transformer mes idées en réalité.
+</p>
+</div>
+</div>
 </section>
 
 <section id="football" class="reveal">
-
-  <h2 class="section-title">My <span>Football Journey.</span></h2>
-
-  <p class="section-text"
-     data-en="Football is one of my biggest passions. I believe in hard work, discipline, teamwork and continuous improvement."
-     data-fr="Le football est l'une de mes plus grandes passions. Je crois au travail, à la discipline, à l'esprit d'équipe et au progrès continu.">
-    Football is one of my biggest passions. I believe in hard work,
-    discipline, teamwork and continuous improvement.
-  </p>
-
-  <div class="cards">
-
-    <div class="card">
-      <h3>⚽ Position</h3>
-      <p>Right Winger</p>
-    </div>
-
-    <div class="card">
-      <h3>👟 Strong Foot</h3>
-      <p>Left Foot</p>
-    </div>
-
-    <div class="card">
-      <h3>🔥 Strength</h3>
-      <p>Dribbling and creativity.</p>
-    </div>
-
-    <div class="card">
-      <h3>🏆 Club</h3>
-      <p>Rasoir FC 4x4 — U17</p>
-    </div>
-
-  </div>
-
+<div class="container">
+<h2>My <span>Football</span></h2>
+<div class="grid">
+<div class="card"><h3>Club</h3><p>Rasoir FC 4x4</p></div>
+<div class="card"><h3>Category</h3><p>U17</p></div>
+<div class="card"><h3>Position</h3><p>Ailier droit / Right Winger</p></div>
+<div class="card"><h3>Strong Foot</h3><p>Left Foot / Pied gauche</p></div>
+<div class="card"><h3>Strength</h3><p>Dribbling & Creativity</p></div>
+<div class="card"><h3>Mindset</h3><p>Discipline • Work • Faith</p></div>
+</div>
+</div>
 </section>
 
-<section id="skills" class="reveal">
-
-  <h2 class="section-title">My <span>Interests.</span></h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <h3>⚽ Football</h3>
-      <p>Passion, discipline and teamwork.</p>
-    </div>
-
-    <div class="card">
-      <h3>💻 Technology</h3>
-      <p>Exploring the digital world.</p>
-    </div>
-
-    <div class="card">
-      <h3>🤖 Artificial Intelligence</h3>
-      <p>Discovering and building AI projects.</p>
-    </div>
-
-    <div class="card">
-      <h3>🚀 Creativity</h3>
-      <p>Turning ideas into projects.</p>
-    </div>
-
-  </div>
-
+<section id="stats" class="reveal">
+<div class="container">
+<h2>Football <span>Statistics</span></h2>
+<p>My personal football statistics will be updated as I progress.</p>
+<div class="grid" style="margin-top:20px">
+<div class="card"><div class="stat">—</div><h3>Matches</h3><p>Coming soon</p></div>
+<div class="card"><div class="stat">—</div><h3>Goals</h3><p>Coming soon</p></div>
+<div class="card"><div class="stat">—</div><h3>Assists</h3><p>Coming soon</p></div>
+<div class="card"><div class="stat">—</div><h3>Achievements</h3><p>Coming soon</p></div>
+</div>
+</div>
 </section>
 
-<section id="projects" class="reveal">
-
-  <h2 class="section-title">My <span>Projects.</span></h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <h3>MindPhone BCI</h3>
-      <p>An experimental interface with simulated brain signals.</p>
-      <details>
-        <summary>View project details</summary>
-        <p class="details-text">
-          A personal experimental interface project.
-          All brain and EEG data displayed in the project
-          are simulations, not real brain measurements.
-        </p>
-      </details>
-    </div>
-
-    <div class="card">
-      <h3>Ted AI WhatsApp</h3>
-      <p>An AI assistant project concept.</p>
-      <details>
-        <summary>View project details</summary>
-        <p class="details-text">
-          A project concept focused on creating a helpful
-          AI assistant with WhatsApp integration.
-        </p>
-      </details>
-    </div>
-
-    <div class="card">
-      <h3>DOUDE Portfolio</h3>
-      <p>My personal website and digital identity.</p>
-      <details>
-        <summary>View project details</summary>
-        <p class="details-text">
-          A personal website built with HTML, CSS and JavaScript
-          to present my interests, projects and journey.
-        </p>
-      </details>
-    </div>
-
-  </div>
-
+<section id="achievements" class="reveal">
+<div class="container">
+<h2>Trophies & <span>Achievements</span></h2>
+<div class="card">
+<h3>My Journey</h3>
+<p>Every training session is a step forward. More achievements will be added here as they happen.</p>
+<span class="tag">Work in progress</span>
+</div>
+</div>
 </section>
 
 <section id="gallery" class="reveal">
+<div class="container">
+<h2>Football <span>Gallery</span></h2>
+<p>Moments from my football journey.</p>
+<div class="grid gallery" style="margin-top:20px">
+<div class="card">
+<img src="football1.jpeg" alt="Football photo 1"
+onerror="this.style.display='none'">
+<p>Football Moment 01</p>
+</div>
+<div class="card">
+<img src="football2.jpeg" alt="Football photo 2"
+onerror="this.style.display='none'">
+<p>Football Moment 02</p>
+</div>
+</div>
+<p style="margin-top:15px">Watch my football videos on TikTok.</p>
+<a href="https://www.tiktok.com/@doude486?_r=1&_t=ZS-9B7whBDEZBS"
+target="_blank" rel="noopener">Visit my TikTok →</a>
+</div>
+</section>
 
-  <h2 class="section-title">Football <span>Gallery.</span></h2>
+<section id="interests" class="reveal">
+<div class="container">
+<h2>My <span>Interests</span></h2>
+<div class="grid">
+<div class="card"><h3>⚽ Football</h3><p>Training, dribbling and improving my game.</p></div>
+<div class="card"><h3>💻 Technology</h3><p>Programming, AI and innovation.</p></div>
+<div class="card"><h3>🚀 Creativity</h3><p>Building ideas and digital projects.</p></div>
+</div>
+</div>
+</section>
 
-  <p class="section-text"
-     data-en="A space for my football photos and videos. My personal media will be added here."
-     data-fr="Un espace pour mes photos et vidéos de football. Mes médias personnels seront ajoutés ici.">
-    A space for my football photos and videos.
-    My personal media will be added here.
-  </p>
-
-  <div class="gallery">
-
-    <div class="gallery-item">
-      <img src="football1.jpeg"
-           alt="Football photo 1"
-           onerror="this.style.display='none'">
-      <div class="placeholder">
-        <strong>⚽</strong>
-        <p>Football Photo 1</p>
-      </div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="football2.jpeg"
-           alt="Football photo 2"
-           onerror="this.style.display='none'">
-      <div class="placeholder">
-        <strong>🏃</strong>
-        <p>Football Photo 2</p>
-      </div>
-    </div>
-
-    <div class="gallery-item">
-      <div class="placeholder">
-        <strong>🎬</strong>
-        <p>Football videos</p>
-        <a class="gallery-link"
-           href="https://www.tiktok.com/@doude486?_r=1&_t=ZS-9B7whBDEZBS"
-           target="_blank"
-           rel="noopener noreferrer">Watch on TikTok ↗</a>
-      </div>
-    </div>
-
-  </div>
-
+<section id="projects" class="reveal">
+<div class="container">
+<h2>My <span>Projects</span></h2>
+<details>
+<summary>MindPhone BCI</summary>
+<p>A brain-computer interface inspired web project. All EEG and brain-signal data displayed in this demo are simulations, not real brain readings.</p>
+</details>
+<details>
+<summary>Ted AI WhatsApp</summary>
+<p>A personal AI assistant project designed to explore automated WhatsApp responses.</p>
+</details>
+<details>
+<summary>DOUDE Portfolio</summary>
+<p>My personal website to present my journey, football, interests and projects.</p>
+</details>
+</div>
 </section>
 
 <section id="goals" class="reveal">
-
-  <h2 class="section-title">My <span>Goals.</span></h2>
-
-  <div class="cards">
-
-    <div class="card goal">
-      <h3>🏆 Football</h3>
-      <p>Improve my football skills and become a better player.</p>
-    </div>
-
-    <div class="card goal">
-      <h3>💻 Technology</h3>
-      <p>Continue learning computer science and programming.</p>
-    </div>
-
-    <div class="card goal">
-      <h3>🚀 Creativity</h3>
-      <p>Build useful projects and turn ideas into reality.</p>
-    </div>
-
-  </div>
-
+<div class="container">
+<h2>My <span>Goals</span></h2>
+<div class="grid">
+<div class="card"><h3>⚽ Football</h3><p>Become a better player and work toward my football ambitions.</p></div>
+<div class="card"><h3>💻 Computer Science</h3><p>Master programming and build useful technology.</p></div>
+<div class="card"><h3>🌍 Future</h3><p>Create opportunities through discipline, learning and hard work.</p></div>
+</div>
+</div>
 </section>
 
 <section id="contact" class="reveal">
-
-  <h2 class="section-title">Contact <span>Me.</span></h2>
-
-  <p class="section-text"
-     data-en="Want to connect or follow my journey? Visit my TikTok profile."
-     data-fr="Envie de me suivre ou de découvrir mon parcours ? Visitez mon profil TikTok.">
-    Want to connect or follow my journey?
-    Visit my TikTok profile.
-  </p>
-
-  <div class="socials">
-    <a class="social"
-       href="https://www.tiktok.com/@doude486?_r=1&_t=ZS-9B7whBDEZBS"
-       target="_blank"
-       rel="noopener noreferrer">Visit My TikTok ↗</a>
-  </div>
-
+<div class="container">
+<h2>Contact <span>Me</span></h2>
+<div class="card">
+<p>Want to follow my journey or see my content?</p>
+<div class="social">
+<a class="btn" href="https://www.tiktok.com/@doude486?_r=1&_t=ZS-9B7whBDEZBS"
+target="_blank" rel="noopener">TikTok</a>
+<a class="btn" href="#home">Back to top</a>
+</div>
+</div>
+</div>
 </section>
 
-</main>
-
 <footer>
-  © <span id="year"></span> DOUDE. All rights reserved.
+<p>© <span id="year"></span> DOUDE. Built with ambition.</p>
+<p>Dream Big • Work Hard • Stay Humble</p>
 </footer>
 
 <script>
 document.getElementById("year").textContent =
-  new Date().getFullYear();
+new Date().getFullYear();
 
-/* Language switch */
-
-let currentLanguage = "en";
+let currentLanguage = "fr";
 
 function toggleLanguage() {
-  currentLanguage =
-    currentLanguage === "en" ? "fr" : "en";
-
-  document.documentElement.lang = currentLanguage;
-
-  document.querySelectorAll("[data-en]").forEach(element => {
-    element.textContent =
-      element.getAttribute("data-" + currentLanguage);
+  currentLanguage = currentLanguage === "fr" ? "en" : "fr";
+  document.querySelectorAll("[data-fr]").forEach(element => {
+    element.textContent = element.dataset[currentLanguage];
   });
-
   document.getElementById("langBtn").textContent =
-    currentLanguage === "en" ? "FR" : "EN";
+    currentLanguage === "fr" ? "EN" : "FR";
 }
-
-/* Scroll animations */
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
+    if(entry.isIntersecting) {
       entry.target.classList.add("visible");
       observer.unobserve(entry.target);
     }
   });
-}, {
-  threshold: 0.12
-});
+},{threshold:0.12});
 
 document.querySelectorAll(".reveal").forEach(element => {
   observer.observe(element);
